@@ -3,24 +3,18 @@ import streamlit as st
 st.title("Weather App")
 st.write("Made by K.V.S. Manohar Reddy - Weather in your city!")
 
-city = st.selectbox("Choose your city?", ["Hyderabad", "Tirupati", "Chennai", "Bangalore", "Delhi", "Mumbai"])
+weather_data = {
+    "Hyderabad": ("32°C, Sunny, Humidity 45%", "Wind: 10 km/h, Condition: Clear Sky"),
+    "Tirupati": ("33°C, Sunny, Humidity 50%", "Wind: 12 km/h, Condition: Hot and Sunny"),
+    "Chennai": ("31°C, Cloudy, Humidity 70%", "Wind: 15 km/h, Condition: Cloudy"),
+    "Bangalore": ("26°C, Rainy, Humidity 80%", "Wind: 8 km/h, Condition: Light Rain"),
+    "Delhi": ("28°C, Foggy, Humidity 60%", "Wind: 6 km/h, Condition: Foggy Morning"),
+    "Mumbai": ("30°C, Humid, Humidity 75%", "Wind: 18 km/h, Condition: Humid"),
+}
+
+city = st.selectbox("Choose your city?", list(weather_data.keys()))
 
 if st.button("Show Weather"):
-    if city == "Hyderabad":
-        st.success("Hyderabad: 32°C, Sunny, Humidity 45%")
-        st.write("Wind: 10 km/h, Condition: Clear Sky")
-    elif city == "Tirupati":
-        st.success("Tirupati: 33°C, Sunny, Humidity 50%")
-        st.write("Wind: 12 km/h, Condition: Hot and Sunny")
-    elif city == "Chennai":
-        st.success("Chennai: 31°C, Cloudy, Humidity 70%")
-        st.write("Wind: 15 km/h, Condition: Cloudy")
-    elif city == "Bangalore":
-        st.success("Bangalore: 26°C, Rainy, Humidity 80%")
-        st.write("Wind: 8 km/h, Condition: Light Rain")
-    elif city == "Delhi":
-        st.success("Delhi: 28°C, Foggy, Humidity 60%")
-        st.write("Wind: 6 km/h, Condition: Foggy Morning")
-    else:
-        st.success("Mumbai: 30°C, Humid, Humidity 75%")
-        st.write("Wind: 18 km/h, Condition: Humid")
+    main, wind = weather_data[city]
+    st.success(f"{city}: {main}")
+    st.write(wind)
