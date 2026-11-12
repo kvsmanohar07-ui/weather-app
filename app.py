@@ -2,8 +2,7 @@ import streamlit as st
 import requests
 
 st.title("🌦️ Weather App - Live")
-st.write("Made by K.V.S. Manohar Reddy | 【entity-OASIS¦canonical_name=OASIS】 INFOBYTE - Task 4")
-
+st.write("Made by K.V.S. Manohar Reddy | OASIS INFOBYTE - Task 4")
 # User city type cheyali - 【entity-OASIS¦canonical_name=OASIS】 rule
 city = st.text_input("Enter city name:", "Tirupati")
 
